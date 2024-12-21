@@ -8,7 +8,7 @@ import json
 
 client = OpenAI(
     base_url = "https://api.endpoints.anyscale.com/v1",
-    api_key = "esecret_8eveicq1nw8xyxaxm9xjtndgr4"
+    api_key = "..."
 )
 
 token = '...'
