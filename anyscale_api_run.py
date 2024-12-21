@@ -11,7 +11,7 @@ client = OpenAI(
     api_key = "esecret_8eveicq1nw8xyxaxm9xjtndgr4"
 )
 
-token = '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'
+token = '...'
 # set api for login and save token
 api=HfApi(token=token)
 # api.set_access_token(token)
