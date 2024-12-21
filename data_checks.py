@@ -2,31 +2,6 @@ import pandas as pd
 import re
 import html2text
 
-
-# class CustomHTML2Text(html2text.HTML2Text):
-#     def handle_list(self, list, state):
-#         if 'A' in list.get('type', ''):
-#             self.list_item_prefix = 'A. '
-#         elif 'a' in list.get('type', ''):
-#             self.list_item_prefix = 'a. '
-#         elif '1' in list.get('type', ''):
-#             self.list_item_prefix = '1. '
-#         elif 'I' in list.get('type', ''):
-#             self.list_item_prefix = 'I. '
-#         elif 'i' in list.get('type', ''):
-#             self.list_item_prefix = 'i. '
-#         else:
-#             self.list_item_prefix = '• '
-
-# Example usage
-# def html_to_plain_text(html_string):
-#     # Create an instance of the CustomHTML2Text converter
-#     converter = html2text.HTML2Text()
-#     # Convert HTML to plain text
-#     plain_text = converter.handle(html_string)
-#     return plain_text
-
-
 def html_to_plain_text(html_string):
     # Create an instance of the HTML2Text converter
     converter = html2text.HTML2Text()
@@ -35,34 +10,6 @@ def html_to_plain_text(html_string):
     # Modify the plain text to replace "\n1. ", "\n2. ", ... with "\nA. ", "\nB. ", ...
     plain_text = re.sub(r'(\d+)\. ', lambda match: chr(int(match.group(1)) + 64) + '. ', plain_text)
     return plain_text
-
-print(html_to_plain_text("""<table>
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-</table>"""))
-
-
-# Example usage
-# html_string = "\\frac{3}{4}" #'<ol id="eip-id1169866436811" type="A"><li>Until 2025.</li><li>Until 2079.</li><li>Until 2110.</li></ol>'
-# plain_text = html_to_plain_text(html_string)
-# print(plain_text)
-#
-# html_string = '<ol id="eip-id1169866436811" type="A"><li>Until 2025.</li><li>Until 2079.</li><li>Until 2110.</li></ol> Solution B.'
-# print('<<Out>>', html_to_plain_text(html_string))
-
 
 def find_html_tags(html_string):
     # Define the regular expression pattern to match HTML tags
